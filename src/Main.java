@@ -10,7 +10,7 @@ public class Main {
         int testYear = 2015;
         if (os.equalsIgnoreCase("ios") && year <= testYear) {
             System.out.println("установите облегченную версию для IOS");
-        } else if (os.equalsIgnoreCase("ios") && year > testYear){
+        } else if (os.equalsIgnoreCase("ios") && year > testYear) {
             System.out.println("Установите приложение для IOS");
         } else if (os.equalsIgnoreCase("android") && year <= testYear) {
             System.out.println("установите облегченную версию для Android");
@@ -45,6 +45,30 @@ public class Main {
     }
 
     public static void task3() {
+        System.out.println("задача 3");
+        int deliveryDistance = 95;
+        int deliveryDay = getDeliveryDay(deliveryDistance);
+        if (deliveryDay == 0) {
+            System.out.println("доставки нет");
+        } else {
+            System.out.println("доставка займёт " + deliveryDay + " дня");
+        }
 
+    }
+
+    public static int getDeliveryDay(int distance) { // метод позволяет редактировать вводные данные по доставке, чтобы не писать кучу if если поменяется максимальное расстояние или интервал в расстоянии и минимальное расстояние на 1 день доставки
+        int day = 1;
+        int maxDistance = 100;
+        int stepDistance = 40;
+        int minDistance = 20;
+        if (distance > maxDistance) {
+            return 0;
+        } else {
+            while (minDistance < distance) {
+                minDistance += stepDistance;
+                day++;
+            }
+        }
+        return day;
     }
 }
